@@ -1,454 +1,216 @@
-# 📝 Exam 03 – Python OOP
+## **File Handling – TXT fayl**
+
+### ✅ **1. Foydalanuvchi ma’lumotini yozish**
+
+📄 `data.txt` fayliga foydalanuvchi ismi va yoshini yozing.
+
+**Shartlar:**
+
+* Foydalanuvchidan `input()` orqali ism va yosh so‘raladi.
+* Har bir foydalanuvchi yangi qatorda yozilsin (`a` rejimi).
+* Format: `Ali – 15 yosh`
 
 ---
 
-### 1. Class yaratish
+### ✅ **2. TXT fayldan o‘qish**
 
-**Task:** `Car` nomli class yozing. Unda `brand`, `model`, `year` atributlari bo‘lsin va obyekt haqida ma’lumot qaytaradigan `get_info()` methodini yozing.
+📄 `data.txt` faylini o‘qib, barcha foydalanuvchi ma’lumotlarini ekranga chiqaring.
 
-**Input:**
+**Shartlar:**
 
-```python
-car = Car("BMW", "X5", 2020)
-print(car.get_info())
-```
-
-**Output:**
-
-```
-BMW X5 (2020)
-```
+* `with open(..., "r")` dan foydalaning.
+* Har bir qatorni `strip()` bilan tozalang.
+* Fayl mavjud bo‘lmasa, `"Fayl topilmadi!"` xabarini chiqaring (`try/except` bilan).
 
 ---
 
-### 2. Constructor
+### ✅ **3. TXT fayldagi qatorlar sonini hisoblash**
 
-**Task:** `Student` class yarating. `introduce()` methodi orqali talaba o‘zini tanishtirsin.
+📄 `data.txt` faylida nechta foydalanuvchi ma’lumotlari yozilganini hisoblang.
 
-**Input:**
+**Shartlar:**
 
-```python
-s = Student("Ali", 20, 2)
-print(s.introduce())
-```
-
-**Output:**
-
-```
-My name is Ali, I am 20 years old, studying in 2nd course.
-```
+* Fayl mavjudligini `try/except` bilan tekshiring.
+* Fayl ochilsa, `len(readlines())` bilan qatorlar sonini aniqlang.
+* Natijani ekranga chiqarish:
+  `data.txt faylida 5 ta foydalanuvchi mavjud`
 
 ---
 
-### 3. Inheritance – asosiy
+## **File Handling – JSON fayl**
 
-**Task:** `Dog` classi `Animal` dan meros olsin va `bark()` methodiga ega bo‘lsin.
+### ✅ **4. JSON faylga ma’lumot yozish**
 
-**Input:**
+📦 `data.json` faylini yarating va foydalanuvchi ma’lumotlarini yozing.
 
-```python
-d = Dog("Rex")
-print(d.name)
-d.bark()
+**Shartlar:**
+
+* Foydalanuvchidan ism va yosh so‘raladi.
+* Faylga quyidagi formatda yozilsin:
+
+```json
+{"name": "Ali", "age": 15}
 ```
 
-**Output:**
-
-```
-Rex
-Woof! Woof!
-```
+* Har safar yangi foydalanuvchi qo‘shilganda, faylni yangilang (append emas, ro‘yxatga qo‘shib).
+* Fayl bo‘sh bo‘lsa, bo‘sh ro‘yxat yarating.
 
 ---
 
-### 4. Multiple Inheritance
+### ✅ **5. JSON fayldan o‘qish**
 
-**Task:** `Duck` classini `Flyer` va `Swimmer` dan meros oling.
+📦 `data.json` faylini o‘qib, barcha foydalanuvchi ma’lumotlarini ekranga chiqaring.
 
-**Input:**
+**Shartlar:**
 
-```python
-duck = Duck()
-duck.fly()
-duck.swim()
-```
-
-**Output:**
-
-```
-Duck is flying
-Duck is swimming
-```
+* `json.load()` dan foydalaning.
+* Har bir foydalanuvchi uchun:
+  `Name: Ali, Age: 15`
+* Fayl mavjud bo‘lmasa, `"Fayl topilmadi!"` xabarini chiqaring.
 
 ---
 
-### 5. Polymorphism
+### ✅ **6. JSON faylda ma’lumot qo‘shish**
 
-**Task:** `Shape` abstract classidan `Circle` va `Rectangle` classlarini yarating.
+📦 `data.json` fayliga yangi foydalanuvchi qo‘shing.
 
-**Input:**
+**Shartlar:**
 
-```python
-c = Circle(5)
-r = Rectangle(4, 6)
-print(c.area())
-print(r.area())
-```
-
-**Output:**
-
-```
-78.5
-24
-```
+* Avval fayldan barcha ma’lumotlarni o‘qing (`json.load()`).
+* Yangi foydalanuvchi obyektini ro‘yxatga qo‘shing.
+* Faylni yangilab saqlang (`json.dump()`).
+* Natija ekranga chiqsin:
+  `Foydalanuvchi JSON faylga qo‘shildi!`
 
 ---
 
-### 6. Encapsulation
+## **Python OOP**
 
-**Task:** `BankAccount` classida balans private bo‘lsin.
+### ✅ **7. Book klassini yozing**
 
-**Input:**
+📚 `Book` nomli klass yozing.
 
-```python
-acc = BankAccount(100)
-acc.deposit(50)
-acc.withdraw(30)
-print(acc.get_balance())
-```
+**Atributlar:**
 
-**Output:**
+* `title`, `author`, `year`
 
-```
-120
-```
+**Shartlar:**
+
+* `__init__()` konstruktor orqali qiymatlarni qabul qilsin.
+* 2 ta book obyektini yaratib, ma’lumotlarini `print()` bilan chiqaring.
 
 ---
 
-### 7. Classmethod & Staticmethod
+### ✅ **8. Rectangle klassi – To‘rtburchak yuzasi**
 
-**Task:** `StringTools` classida:
+⬛ `Rectangle` klassi:
 
-* `is_palindrome(text)` static methodi yozing
-* `from_sentence("I love Python")` classmethod orqali obyekt yarating va so‘zlar ro‘yxatini saqlang.
+**Atributlar:** `width`, `height`
+**Metod:** `area()` – yuzani hisoblaydi (`width * height`)
 
-**Input:**
+**Shartlar:**
 
-```python
-print(StringTools.is_palindrome("level"))
-st = StringTools.from_sentence("I love Python")
-print(st.words)
-```
-
-**Output:**
-
-```
-True
-['I', 'love', 'Python']
-```
+* 2 ta obyekt sinab ko‘ring va yuzalarni chiqarish.
 
 ---
 
-### 8. Magic Methods
+### ✅ **9. Animal klassi – Hayvon tovushi**
 
-**Task:** `Vector` classida `__add__` metodini overload qiling.
+🐾 `Animal` klassi:
 
-**Input:**
+**Atributlar:** `name`, `sound`
+**Metod:** `make_sound()` → `"Dog says Woof!"`
 
-```python
-v1 = Vector(2, 3)
-v2 = Vector(4, 5)
-v3 = v1 + v2
-print(v3)
-```
+**Shartlar:**
 
-**Output:**
-
-```
-Vector(6, 8)
-```
+* 2 ta hayvon obyektini yaratib, metodni chaqiring.
 
 ---
 
-### 9. Property
+### ✅ **10. BankAccount klassi – Hisob bilan ishlash**
 
-**Task:** `Temperature` classida `celsius` va `fahrenheit` property bo‘lsin.
+🏦 `BankAccount` klassi:
 
-**Input:**
-
-```python
-t = Temperature(0)
-print(t.celsius)
-print(t.fahrenheit)
-```
-
-**Output:**
-
-```
-0
-32.0
-```
+**Atributlar:** `owner`, `balance`
+**Metodlar:** `deposit(amount)`, `withdraw(amount)` (balans yetarli bo‘lmasa `"Balans yetarli emas"`)
 
 ---
 
-### 10. Inheritance + super()
+### ✅ **11. Inheritance – Vehicle va Car**
 
-**Task:** `Employee` classini `Person` dan meros oling.
+🚗 `Vehicle` klassi: `brand`, `model`, `move()` → `"Vehicle is moving"`
+`Car` klassi (`Vehicle` dan meros oladi): `move()` → `"Car is driving"`
 
-**Input:**
+**Shartlar:**
 
-```python
-e = Employee("Hasan", 25, "Google")
-print(e.get_info())
-```
-
-**Output:**
-
-```
-Hasan, 25 years old, works at Google
-```
+* Har ikkala klassdan obyekt yarating va `move()` metodini sinab ko‘ring.
 
 ---
 
-### 11. Composition
+### ✅ **12. Inheritance – Person va Student**
 
-**Task:** `Book` classida `Author` obyektidan foydalaning.
+👨‍🎓 `Person` klassi: `name`, `age`, `introduce()`
+`Student` klassi: qo‘shimcha `grade`, `introduce()` metodini qayta yozish
 
-**Input:**
+**Shartlar:**
 
-```python
-a = Author("Alisher Navoiy")
-b = Book("Xamsa", a)
-print(b.get_info())
-```
-
-**Output:**
-
-```
-Book: Xamsa, Author: Alisher Navoiy
-```
+* Har ikkala klassdan obyekt yaratib, metodlarni sinab ko‘ring.
 
 ---
 
-### 12. Abstract Base Class
+### ✅ **13. Polymorphism – Shape**
 
-**Task:** `Vehicle` abstract classini yarating.
+🟢 Bazaviy `Shape` klassi, `area()` metod bo‘sh (pass)
+`Rectangle` va `Circle` undan meros oladi
 
-**Input:**
+**Shartlar:**
 
-```python
-car = Car()
-bike = Bike()
-car.start_engine()
-bike.start_engine()
-```
-
-**Output:**
-
-```
-Car engine started
-Bike engine started
-```
+* `Rectangle`: `area()` → `width * height`
+* `Circle`: `area()` → `3.14 * radius ** 2`
+* Obyektlarni ro‘yxatga joylab, sikl orqali yuzalarni chiqarish.
 
 ---
 
-### 13. Interface-like Design
+### ✅ **14. Calculator klassi – Try/Except bilan**
 
-**Task:** `Payment` abstract classida `pay()` methodini implement qiling.
+🧮 `Calculator` klassi: `divide(a, b)` metod
 
-**Input:**
+**Shartlar:**
 
-```python
-p1 = PayPalPayment()
-p2 = CardPayment()
-p1.pay(100)
-p2.pay(200)
-```
-
-**Output:**
-
-```
-Paid 100 using PayPal
-Paid 200 using Card
-```
+* Agar `b=0` bo‘lsa, `"Bo‘lishda xatolik"` xabarini chiqaring (`try/except` bilan).
 
 ---
 
-### 14. Cart class
+### ✅ **15. Custom Exception – AgeError**
 
-**Task:** `Cart` classini yozing.
+🚫 `AgeError` nomli custom exception
 
-* `add_item(name, price)` metodida mahsulot qo‘shilsin
-* `get_total()` umumiy narxni hisoblasin
+**Shartlar:**
 
-**Input:**
-
-```python
-cart = Cart()
-cart.add_item("Laptop", 2000)
-cart.add_item("Mouse", 100)
-print(cart.get_total())
-```
-
-**Output:**
-
-```
-2100
-```
+* Agar foydalanuvchi yoshi manfiy bo‘lsa, `raise AgeError("Yosh noto‘g‘ri!")`
 
 ---
 
-### 15. TodoList class
+### ✅ **16. Polymorphism – Bird va Dog**
 
-**Task:** `TodoList` classini yozing.
+🐦 `Bird` va 🐕 `Dog` klasslari, har biri `speak()` metodiga ega
 
-* `add_task(task)` metodida vazifa qo‘shilsin
-* `show_tasks()` metodida barcha vazifalar chiqsin
+**Shartlar:**
 
-**Input:**
-
-```python
-todo = TodoList()
-todo.add_task("Do homework")
-todo.add_task("Clean room")
-todo.show_tasks()
-```
-
-**Output:**
-
-```
-1. Do homework
-2. Clean room
-```
+* Ro‘yxatga joylab, sikl orqali `speak()` chaqirish
 
 ---
 
-### 16. Bank Account – Inheritance
+### ✅ **17. Full Project – User Manager**
 
-**Task:** `Account` nomli asosiy class yozing.
+👥 `User` klassi:
 
-* Unda `balance` atributi va `deposit(amount)` hamda `withdraw(amount)` metodlari bo‘lsin.
+**Atributlar:** `username`, `email`, `is_active`
+**Metodlar:** `save()`, `deactivate()`
 
-So‘ngra undan ikkita class hosil qiling:
+**Shartlar:**
 
-1. **SavingsAccount**
-
-   * `interest_rate` atributiga ega bo‘lsin.
-   * `calculate_interest()` metodi balans bo‘yicha foiz hisoblab qaytarsin (`balance * interest_rate`).
-
-2. **CheckingAccount**
-
-   * Oddiy `deposit()` va `withdraw()` metodlari ishlasin (foizsiz).
+* 2 ta foydalanuvchi yaratish: biri faol (`True`), biri nofaol (`False`)
+* Faylga yozing va fayldan o‘qib ma’lumotni chiqarish
 
 ---
-
-**Input:**
-
-```python
-s = SavingsAccount(1000, 0.05)  # 5% foiz stavkasi
-s.deposit(500)                  # balansga qo‘shildi
-print(s.calculate_interest())
-```
-
-**Output:**
-
-```
-75.0
-```
-
----
-
-📌 Ya’ni:
-
-* Avval `Account` → umumiy bank hisob
-* Keyin `SavingsAccount` → foizli hisob
-* `CheckingAccount` → oddiy hisob
-
----
-
-### 17. Session class
-
-**Task:** `Session` classini yozing.
-
-* `login(username)` metodida foydalanuvchi tizimga kiradi
-* `logout()` metodida tizimdan chiqadi
-
-**Input:**
-
-```python
-s = Session()
-s.login("Ali")
-s.logout()
-```
-
-**Output:**
-
-```
-Ali logged in
-Ali logged out
-```
-
----
-
-### 18. Operator Overloading
-
-**Task:** `Time` classida `__lt__` metodini yozing.
-
-**Input:**
-
-```python
-t1 = Time(10, 30)
-t2 = Time(12, 15)
-print(t1 < t2)
-```
-
-**Output:**
-
-```
-True
-```
-
----
-
-### 19. Mixins
-
-**Task:** `JsonMixin` obyektni JSON ga aylantirsin.
-
-**Input:**
-
-```python
-p = Product("Laptop", 1500)
-print(p.to_json())
-```
-
-**Output:**
-
-```
-{"name": "Laptop", "price": 1500}
-```
-
----
-
-### 20. Real Project Mini-task
-
-**Task:** `Library` system yozing.
-
-**Input:**
-
-```python
-lib = Library()
-lib.add_book("1984", "George Orwell")
-lib.add_book("Xamsa", "Alisher Navoiy")
-
-print(lib.borrow_book("1984"))
-print(lib.borrow_book("1984"))
-print(lib.return_book("1984"))
-```
-
-**Output:**
-
-```
-You borrowed '1984'
-Sorry, '1984' is not available
-You returned '1984'
-```
