@@ -14,6 +14,6 @@ class BankAccount:
         else:
             self.balance -= amount
             print(f"{self.name} ning hisobidan {amount} ming pul yechib olindi. hozirgi balans: {self.balance}")
-account = BankAccount("Ali", "Aliyev", 1000)
+account = BankAccount("Ali Aliyev", 1000)
 account.deposit(500)
 account.withdraw(200)
